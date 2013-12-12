@@ -1,0 +1,49 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+  <h:head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+  </h:head>
+  <h:body>
+  	<div class="row">
+  		<div class="col-lg-9 col-offset-1">
+  			<h1>BEER SELECTION PAGE</h1>
+  		</div>
+  	</div>
+  	<div class="row">
+  	 <div class="col-lg-3 col-offset-1">
+  		<h:form>
+		 	<h:selectOneMenu
+			       id="beerSelection" required="true"
+			     value="#{beerSelect.color}" >
+			    <f:selectItem
+			        itemValue="Amber"
+			        itemLabel="Amber"/>
+			    <f:selectItem
+			        itemValue="Brown"
+			        itemLabel="Brown"/>
+			    <f:selectItem
+			        itemValue="Dark"
+			        itemLabel="Dark"/>
+			    <f:selectItem
+			        itemValue="Light"
+			        itemLabel="Light"/>
+			 </h:selectOneMenu>
+			<h:commandButton type="submit" class="btn btn-default"  action = "response" value="Submit"></h:commandButton>		  
+		</h:form>
+	 </div>	  		
+	</div>    
+
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Optionally enable responsive features in IE8 -->
+    <script src="js/respond.js"></script>
+  </h:body>
+</html>

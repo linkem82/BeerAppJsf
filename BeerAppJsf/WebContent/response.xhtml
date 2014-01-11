@@ -12,16 +12,17 @@
 <h:body>
 	<div class="row">
   		<div class="col-lg-9 col-offset-3">
-  		<h2>The recommended beers are :</h2>  		
-			<h:dataTable id="items"
-	             captionStyle="font-weight:bold"
-	             value="#{beerSelect.beers}"
-	             border="1"
-	             var="item">
+  		<h2>The recommended beers are :</h2>
+  		  		
+			<h:dataTable id="items"	             
+	             value="#{beerSelect.beers}"	             
+	             var="item"
+	             class="table"
+	             >	          
 			   <h:column>
 			     <h:outputText value="#{item.name}"/>		        
-			   </h:column>
-			</h:dataTable>		
+			   </h:column>			  
+			</h:dataTable>				
 		</div>
 	</div>	
 	<!-- JavaScript plugins (requires jQuery) -->

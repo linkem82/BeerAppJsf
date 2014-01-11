@@ -10,4 +10,7 @@
 		<property name="name" column="NAME" />
 		<property name="type" column="TYPE" />
 	</class>
+	<query name="beers_of_same_type">
+		<![CDATA[select a from Beer a, BeerType b  where a.type = b.id and b.type=:color]]>
+	</query>
 </hibernate-mapping>

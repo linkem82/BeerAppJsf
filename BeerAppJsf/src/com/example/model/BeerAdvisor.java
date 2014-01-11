@@ -2,6 +2,7 @@ package com.example.model;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -15,18 +16,10 @@ public class BeerAdvisor {
 		List<Beer> beers;		
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		Transaction tx = session.beginTransaction();		
-		if(color.equals("Dark")) {
-			beers = session.createQuery("select a from Beer a, BeerType b  where a.type = b.id and b.type='Dark'").list();
-		}
-		else if(color.equals("Brown")) {
-			beers = session.createQuery("select a from Beer a, BeerType b  where a.type = b.id and b.type='Brown'").list();
-		}
-		else if(color.equals("Amber")) {
-			beers = session.createQuery("select a from Beer a, BeerType b  where a.type = b.id and b.type='Amber'").list();
-		}
-		else {
-			beers = session.createQuery("select a from Beer a, BeerType b  where a.type = b.id and b.type='Light'").list();
-		}
+		//Query query = session.createQuery("select a from Beer a, BeerType b  where a.type = b.id and b.type=:color");
+		Query query = session.getNamedQuery("beers_of_same_type");
+		query.setString("color", color);
+		beers = query.list();
 		tx.commit();
 		//session.close();
 		// Shutting down the application
